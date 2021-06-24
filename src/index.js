@@ -5,13 +5,16 @@ import App from './App';
 //import * as serviceWorker from './serviceWorker';
 import { HashRouter } from 'react-router-dom'
 import ScrollToTop from './ScrollToTop';
+import {AuthProvider} from './context'
 
 ReactDOM.render(
-    <HashRouter>
-        <ScrollToTop>
-            <App></App>
-        </ScrollToTop>
-    </HashRouter>,
+    <AuthProvider>
+        <HashRouter>
+            <ScrollToTop>
+                <App></App>
+            </ScrollToTop>
+        </HashRouter>
+    </AuthProvider>,
     document.getElementById('root')
 );
 
