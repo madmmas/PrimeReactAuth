@@ -154,12 +154,12 @@ const App = () => {
         'layout-sidebar-dark': layoutColorMode === 'dark',
         'layout-sidebar-light': layoutColorMode === 'light'
     });
-    const isLoggedIn = false;
+    const isLoggedIn = true;
     if (isLoggedIn) {
         return (
 
             <div className={wrapperClass} onClick={onWrapperClick}>
-                {/* <AppTopbar onToggleMenu={onToggleMenu} /> */}
+                <AppTopbar onToggleMenu={onToggleMenu} />
 
                 <CSSTransition classNames="layout-sidebar" timeout={{ enter: 200, exit: 200 }} in={isSidebarVisible()} unmountOnExit>
                     <div ref={sidebar} className={sidebarClassName} onClick={onSidebarClick}>
@@ -175,8 +175,9 @@ const App = () => {
                     layoutMode={layoutMode} onLayoutModeChange={onLayoutModeChange} layoutColorMode={layoutColorMode} onColorModeChange={onColorModeChange} /> */}
 
                 <div className="layout-main">
-                    {/* <Route path="/" exact component={Dashboard} />
-                    <Route path="/formlayout" component={FormLayoutDemo} />
+                    {
+                     <Route path="/dashboard" exact component={EmptyPage} />
+                    /*<Route path="/formlayout" component={FormLayoutDemo} />
                     <Route path="/input" component={InputDemo} />
                     <Route path="/floatlabel" component={FloatLabelDemo} />
                     <Route path="/invalidstate" component={InvalidStateDemo} />
@@ -206,7 +207,7 @@ const App = () => {
                     {/* <Route path="/documentation" component={Documentation} /> */}
                 </div>
 
-                <AppFooter />
+                {/* <AppFooter /> */}
 
             </div>
         );

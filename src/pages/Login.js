@@ -14,17 +14,14 @@ export const Login = (props) => {
 
     const formik = useFormik({
         initialValues: {
-            email: '',
+            username: '',
             password: '',
         },
         validate: (data) => {
             let errors = {};
 
-            if (!data.email) {
-                errors.email = 'Email is required.';
-            }
-            else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(data.email)) {
-                errors.email = 'Invalid email address. E.g. example@email.com';
+            if (!data.username) {
+                errors.username = 'Username is required.';
             }
 
             if (!data.password) {
@@ -40,6 +37,7 @@ export const Login = (props) => {
             
             try {
                 let response = await loginUser(dispatch, data) //loginUser action makes the request and handles all the neccessary state changes
+                console.log(response)
                 if (!response.user) return
                 props.history.push('/dashboard') //navigate to dashboard on success
             } catch (error) {
@@ -64,10 +62,10 @@ export const Login = (props) => {
                         <div className="p-field">
                             <span className="p-float-label p-input-icon-right">
                                 <i className="pi pi-envelope" />
-                                <InputText id="email" name="email" value={formik.values.email} onChange={formik.handleChange} className={classNames({ 'p-invalid': isFormFieldValid('email') })} />
-                                <label htmlFor="email" className={classNames({ 'p-error': isFormFieldValid('email') })}>Email*</label>
+                                <InputText id="username" name="username" value={formik.values.username} onChange={formik.handleChange} className={classNames({ 'p-invalid': isFormFieldValid('username') })} />
+                                <label htmlFor="username" className={classNames({ 'p-error': isFormFieldValid('username') })}>Username*</label>
                             </span>
-                            {getFormErrorMessage('email')}
+                            {getFormErrorMessage('username')}
                         </div>
 
                         <div className="p-field">

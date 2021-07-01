@@ -1,4 +1,4 @@
-const ROOT_URL = 'https://secret-hamlet-03431.herokuapp.com';
+const ROOT_URL = 'http://localhost:4000/api';
 
 export async function loginUser(dispatch, loginPayload) {
   const requestOptions = {
@@ -11,9 +11,10 @@ export async function loginUser(dispatch, loginPayload) {
     dispatch({ type: 'REQUEST_LOGIN' });
     let response = await fetch(`${ROOT_URL}/login`, requestOptions);
     let data = await response.json();
- 
-    if (data.user) {
+    console.log(data)
+    if (data.code==20000) {
       dispatch({ type: 'LOGIN_SUCCESS', payload: data });
+      localStorage.setItem('token', data.token);
       localStorage.setItem('currentUser', JSON.stringify(data));
       return data
     }
@@ -21,6 +22,7 @@ export async function loginUser(dispatch, loginPayload) {
     dispatch({ type: 'LOGIN_ERROR', error: data.errors[0] });
     return;
   } catch (error) {
+    console.log("Error", error)
     dispatch({ type: 'LOGIN_ERROR', error: error });
   }
 }
@@ -30,3 +32,4 @@ export async function logout(dispatch) {
   localStorage.removeItem('currentUser');
   localStorage.removeItem('token');
 }
+
