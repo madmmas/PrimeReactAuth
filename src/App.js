@@ -134,9 +134,6 @@ const App = () => {
 
 
                 <div className="layout-main">
-                    {/* <Route path="/">
-                        <Redirect to="/dashboard"></Redirect>
-                    </Route> */}
                     <Route path={["/", "/dashboard"]}  exact component={EmptyPage} />
                     <Route path="/calendar" component={Calendar} />
                     <Route path="/crud" component={Crud} />
@@ -147,11 +144,7 @@ const App = () => {
             {isLoggedIn==false &&
                 <div className={wrapperClass} >
                     <div className="layout-login">
-                        {/* <Route path="/">
-                            <Redirect to="/login"></Redirect>
-                        </Route> */}
                         <Route path={["/", "/login"]}  exact component={Login} />
-                        {/* <Route path="/login" exact component={Login} /> */}
                     </div>
                 </div>
             }
