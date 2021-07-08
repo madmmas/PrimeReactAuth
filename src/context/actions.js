@@ -14,7 +14,7 @@ export async function loginUser(dispatch, loginPayload) {
     console.log(data)
     if (data.code==20000) {
       dispatch({ type: 'LOGIN_SUCCESS', payload: data });
-      localStorage.setItem('token', data.token);
+      // localStorage.setItem('token', data.token);
       localStorage.setItem('currentUser', JSON.stringify(data));
       return data
     }
