@@ -62,7 +62,7 @@ export const Login = (props) => {
                         <div className="p-field">
                             <span className="p-float-label p-input-icon-right">
                                 <i className="pi pi-envelope" />
-                                <InputText id="username" name="username" value={formik.values.username} onChange={formik.handleChange} className={classNames({ 'p-invalid': isFormFieldValid('username') })} />
+                                <InputText  id="username" name="username" value={formik.values.username} onChange={formik.handleChange} className={classNames({ 'p-invalid': isFormFieldValid('username') })} />
                                 <label htmlFor="username" className={classNames({ 'p-error': isFormFieldValid('username') })}>Username*</label>
                             </span>
                             {getFormErrorMessage('username')}
@@ -70,7 +70,7 @@ export const Login = (props) => {
 
                         <div className="p-field">
                             <span className="p-float-label">
-                                <Password id="password" name="password" value={formik.values.password} onChange={formik.handleChange} toggleMask
+                                <Password feedback={false} id="password" name="password" value={formik.values.password} onChange={formik.handleChange} toggleMask
                                     className={classNames({ 'p-invalid': isFormFieldValid('password') })} />
                                 <label htmlFor="password" className={classNames({ 'p-error': isFormFieldValid('password') })}>Password*</label>
                             </span>

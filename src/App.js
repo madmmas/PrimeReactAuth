@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import classNames from 'classnames';
-import { Route, useHistory } from 'react-router-dom';
+import { Route, Redirect, useHistory } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
 
 import { AppTopbar } from './AppTopbar';
@@ -134,8 +134,10 @@ const App = () => {
 
 
                 <div className="layout-main">
-
-                     <Route path="/dashboard" exact component={EmptyPage} />
+                    {/* <Route path="/">
+                        <Redirect to="/dashboard"></Redirect>
+                    </Route> */}
+                    <Route path={["/", "/dashboard"]}  exact component={EmptyPage} />
                     <Route path="/calendar" component={Calendar} />
                     <Route path="/crud" component={Crud} />
                     <Route path="/empty" component={EmptyPage} />
@@ -145,7 +147,11 @@ const App = () => {
             {isLoggedIn==false &&
                 <div className={wrapperClass} >
                     <div className="layout-login">
-                        <Route path="/login" exact component={Login} />
+                        {/* <Route path="/">
+                            <Redirect to="/login"></Redirect>
+                        </Route> */}
+                        <Route path={["/", "/login"]}  exact component={Login} />
+                        {/* <Route path="/login" exact component={Login} /> */}
                     </div>
                 </div>
             }
