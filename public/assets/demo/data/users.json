@@ -1,0 +1,19 @@
+[
+    {
+      "id": "5a1b489e-b978-11ea-b0ad-02bcbb6fc696",
+      "username": "admin",
+      "email": "admin@example.com",
+      "roles": "ROOT,ADMIN,USER",
+      "active": true,
+      "is_root": true,
+      "updated": "2020-07-01T05:40:23+06:00"
+    },
+    {
+      "id": "e1319bbc-1788-40f3-bafc-af59ed3cee70",
+      "username": "user",
+      "email": "user@example.com",
+      "roles": "USER",
+      "active": true,
+      "updated": "2020-07-01T05:40:23+06:00"
+    }
+  ]

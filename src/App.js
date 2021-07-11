@@ -8,8 +8,10 @@ import { AppMenu } from './AppMenu';
 import { AppProfile } from './AppProfile';
 
 import { Calendar } from './pages/Calendar';
-import { Crud } from './pages/Crud';
 import { EmptyPage } from './pages/EmptyPage';
+import { Crud } from './pages/Crud';
+import { Role } from './pages/Role';
+import { User } from './pages/User';
 
 
 import { Login } from './pages/Login';
@@ -31,6 +33,8 @@ import './layout/layout.scss';
 import './App.scss';
 
 const App = () => {
+
+    window.ROOT_URL = 'http://localhost:4000/api';
 
     const [layoutMode, setLayoutMode] = useState('static');
     const [layoutColorMode, setLayoutColorMode] = useState('dark')
@@ -113,6 +117,7 @@ const App = () => {
 
     const userDetails = useAuthState();
     const isLoggedIn = Boolean(userDetails.token);
+    const userRole = userDetails.userDetails.role
     console.log(userDetails)
 
         return (
@@ -128,13 +133,16 @@ const App = () => {
                             <img alt="Logo" src={logo} />
                         </div>
                         <AppProfile />
-                        <AppMenu model={Menu} onMenuItemClick={onMenuItemClick} />
+                        {/* donwload role json menu based on the role */}
+                        <AppMenu model={Menu[userRole]} onMenuItemClick={onMenuItemClick} />
                     </div>
                 </CSSTransition>
 
 
                 <div className="layout-main">
                     <Route path={["/", "/dashboard"]}  exact component={EmptyPage} />
+                    <Route path="/role" component={Role} />
+                    <Route path="/user" component={User} />
                     <Route path="/calendar" component={Calendar} />
                     <Route path="/crud" component={Crud} />
                     <Route path="/empty" component={EmptyPage} />

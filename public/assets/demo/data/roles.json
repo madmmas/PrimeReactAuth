@@ -1,0 +1,19 @@
+{
+    "data": [
+        {
+          "ID": "24ff8948-e472-4c36-ac3f-eb88580a361b",
+          "name": "USER",
+          "description": "General User"
+        },
+        {
+          "ID": "da0512a2-857f-11eb-b0ad-02bcbb6fc696",
+          "name": "ROOT",
+          "description": "Root/System Administrator"
+        },
+        {
+          "ID": "f7899c8f-857f-11eb-b0ad-02bcbb6fc696",
+          "name": "ADMIN",
+          "description": "Site Admin"
+        }
+      ]
+}

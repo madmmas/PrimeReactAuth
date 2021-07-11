@@ -40,6 +40,7 @@ export const Login = (props) => {
                 console.log(response)
                 if (!response.user) return
                 props.history.push('/dashboard') //navigate to dashboard on success
+                // window.location.reload();
             } catch (error) {
                 console.log(error)
             }

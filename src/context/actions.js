@@ -1,5 +1,3 @@
-const ROOT_URL = 'http://localhost:4000/api';
-
 export async function loginUser(dispatch, loginPayload) {
   const requestOptions = {
     method: 'POST',
@@ -9,7 +7,7 @@ export async function loginUser(dispatch, loginPayload) {
  
   try {
     dispatch({ type: 'REQUEST_LOGIN' });
-    let response = await fetch(`${ROOT_URL}/login`, requestOptions);
+    let response = await fetch(`${window.ROOT_URL}/login`, requestOptions);
     let data = await response.json();
     console.log(data)
     if (data.code==20000) {
